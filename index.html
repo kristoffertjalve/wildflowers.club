@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Wildflowers.club</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="color-scheme" content="light only" />
+		<meta name="description" content="Your weekly companion to Copenhagen" />
+		<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+		<link rel="stylesheet" href="assets/main.css" />
+		<!-- qweoqwupeoiqwuewqe --><style>
+		html, body {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		html, body p {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		p {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		#footer p{
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		label {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		form input {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		button {
+		font-size: 18px !important;
+		font-family: Helvetica, sans-serif !important;
+		}
+		.inner{
+		--padding-vertical: 1.25rem !important;
+		}
+		
+		#weather-box {
+		display:block;
+		position:relative;
+		float:left
+		!important;
+		}
+		
+		#date {
+		display:block;
+		position:relative;
+		float:left
+		!important;
+		}
+		</style><!-- mnbnbxmbzxmncbzxc -->
+	</head>
+	<body>
+		<div class="site-wrapper">
+			<div class="site-main" role="main">
+				<div class="inner">
+					<header id="header">
+						<div id="container03" class="container-component instance-3 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text01" class="text-component instance-1"><a href="https://wildflowers.club">Wildflowers.club</a></p>
+									<div id="embed03" class="embed-component instance-3">
+										<!-- qweoqwupeoiqwuewqe --><div id="date">
+										</div>
+										
+										<script>
+										// Get the current date and time in Copenhagen
+										var date = new Date();
+										var options = {
+										timeZone: "Europe/Copenhagen",
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
+										};
+										var dateString = date.toLocaleDateString("en-US", options);
+										
+										// Update the HTML element with the date and time
+										document.getElementById("date").innerHTML = dateString;
+										</script>
+										
+										<br><!-- mnbnbxmbzxmncbzxc -->
+									</div>
+									<div id="embed02" class="embed-component instance-2">
+										<!-- qweoqwupeoiqwuewqe --><span>
+										<span id="weather-box"></span>
+										<script>
+										var API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
+										var CITY = "Copenhagen";
+										var WeatherTypes = {
+										Thunderstorm: "⛈️",
+										Drizzle: "🌧️",
+										Rain: "🌧️",
+										Snow: "🌨️",
+										Mist: "🌬️",
+										Smoke: "🌬️",
+										Haze: "🌬️",
+										Dust: "🌬️",
+										Fog: "🌫️",
+										Sand: "🌬️",
+										Ash: "🌬️",
+										Squall: "🌬️",
+										Tornado: "🌪️",
+										Clear: "☀️",
+										Clouds: "☁️",
+										}
+										
+										function getWeatherData(city) {
+										const URL = "https://api.openweathermap.org/data/2.5/weather";
+										const FULL_URL = `${URL}?q=${city}&appid=${API_KEY}&units=metric`;
+										const weatherPromise = fetch(FULL_URL);
+										return weatherPromise.then((response) => {
+										return response.json();
+										})
+										
+										}
+										
+										function weatherIcon(weatherMain) {
+										return WeatherTypes[weatherMain];
+										}
+										
+										function showWeatherData(weatherData) {
+										var maxTemp = Math.floor(weatherData.main.temp_max);
+										var minTemp = Math.floor(weatherData.main.temp_min);
+										var mainWeather = weatherData.weather[0].main;
+										document.getElementById("weather-box").innerText = "Copenhagen, " + maxTemp + "° / " + minTemp + "° " + weatherIcon(mainWeather);
+										}
+										
+										function showWeather(city) {
+										getWeatherData(city)
+										.then((res) => {
+										showWeatherData(res);
+										}).catch((error) => {
+										console.log(error);
+										console.log("Unable to find weather data.");
+										})
+										}
+										
+										showWeather(CITY);
+										</script>
+										</span><!-- mnbnbxmbzxmncbzxc -->
+									</div>
+									<p id="text03" class="text-component instance-3"><span class="p"><br><br />***</span></p>
+								</div>
+							</div>
+						</div>
+					</header>
+					<section id="home-section">
+						<div id="container01" class="container-component instance-1 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text04" class="text-component instance-4"><span class="p">Dear visitor</span><span class="p">Every week, we collect people’s recommendations for activities happening in Copenhagen – and share them with our members to promote local culture across generations, ideologies and personal feeds.</span><span class="p">It is free to <a href="#join">join our club</a> and you can read more about how it works in our <a href="#faq">FAQ</a>. Or see this <a href="https://newsletter.wildflowers.club/archive/this-weeks-bouquet-of-copenhagen-wildflowers-4804/">week&#39;s edition</a>.</span><span class="p">With care<br />Søren, Mads &amp; Kristoffer</span></p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="join-section">
+						<div id="container02" class="container-component instance-2 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text06" class="text-component instance-6"><span class="p">* JOIN OUR CLUB *</span><span class="p">It is free for kind humans to join our club. Just fill out the form below and we will email an invitation.</span></p>
+									<hr id="divider07" class="divider-component instance-7">
+									<form id="form01" method="post" action="#" class="form-component instance-1 style-1">
+										<div class="inner">
+											<div class="field">
+											<label for="form01-fname">First name</label>			<input type="text" name="fname" id="form01-fname" placeholder="" maxlength="128" required />
+											</div>
+											<div class="field">
+											<label for="form01-email">E-mail</label>			<input type="email" name="email" id="form01-email" placeholder="" maxlength="128" required />
+											</div>
+											<div class="field">
+												<div class="checkbox">
+													<input type="checkbox" name="consent" id="form01-consent" value="checked" required />
+													<label for="form01-consent"><span>I accept the above information will be used to subscribe me to this list.</span></label>
+												</div>
+											</div>
+											<div class="actions">
+												<button type="submit">Request invite</button>
+											</div>
+										</div>
+										<input type="hidden" name="id" value="form01" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="submit-section">
+						<div id="container05" class="container-component instance-5 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text07" class="text-component instance-7"><span class="p">* SUBMIT RECOMMENDATION *</span><span class="p">To include a recommendation for the newsletter.</span></p>
+									<hr id="divider03" class="divider-component instance-3">
+									<form enctype="multipart/form-data" id="form02" method="post" action="#" class="form-component instance-2 style-1">
+										<div class="inner">
+											<div class="field" data-type="text">
+												<label for="form02-short-one-line-description">Short one line description (optional)</label>
+												<input type="text" name="short-one-line-description" id="form02-short-one-line-description" placeholder="" maxlength="256" />
+											</div>
+											<div class="field" data-type="text">
+												<label for="form02-public-link-to-activity">Public link to activity</label>
+												<input type="text" name="public-link-to-activity" id="form02-public-link-to-activity" placeholder="" maxlength="256" required />
+											</div>
+											<div class="field" data-type="text">
+												<label for="form02-your-name">Your name</label>
+												<input type="text" name="your-name" id="form02-your-name" placeholder="" maxlength="256" required />
+											</div>
+											<div class="field" data-type="text">
+												<label for="form02-a-link-to-you">A link to you (optional)</label>
+												<input type="text" name="a-link-to-you" id="form02-a-link-to-you" placeholder="" maxlength="256" />
+											</div>
+											<div class="actions">
+												<button type="submit">Submit</button>
+											</div>
+										</div>
+										<input type="hidden" name="id" value="form02" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="faq-section">
+						<div id="container06" class="container-component instance-6 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text13" class="text-component instance-13"><span class="p">* FREQUENTLY ASKED QUESTIONS *</span><span class="p">Don’t find what you are looking for? Write to us at <a href="mailto:hi@wildflowers.club">hi@wildflowers.club</a></span></p>
+									<hr id="divider01" class="divider-component instance-1">
+									<p id="text09" class="text-component instance-9"><span class="p">Why are you writing in English?</span><span class="p">In order to make this project as inclusive as possible, we have decided to make English the lingua franca of Wildflowers Club. In this way, it’ll be easier for the many non-Danish speaking people in Copenhagen to connect with the local scene.</span></p>
+									<hr id="divider05" class="divider-component instance-5">
+									<p id="text11" class="text-component instance-11"><span class="p">Okay, and how does this work?</span><span class="p">Every week, we collect recommendations for activities in Copenhagen from our contributors and send them in a free newsletter on Monday at 12:30 PM for everyone to enjoy.</span></p>
+									<hr id="divider13" class="divider-component instance-13">
+									<p id="text10" class="text-component instance-10"><span class="p">Is it really free?</span><span class="p">Yes, it is free and always will be. It takes two hours per week and costs ≈$32 per month to make Wildflowers Club. It is a small price to pay for providing a local and human alternative to discovering and celebrating cultural initiatives in Copenhagen outside of our personal feeds. If you want to support this initiative you can <a href="#classified">purchase a classified</a>. This is how we hope for the project to pay for itself so it can exist for eternity.</span></p>
+									<hr id="divider02" class="divider-component instance-2">
+									<p id="text12" class="text-component instance-12"><span class="p">How do I become a contributor?</span><span class="p">With patience. The first step is to <a href="#join">join the club</a> and receive the weekly newsletter. If you would still like to contribute with recommendations after having received a few editions of the newsletter, please <a href="#apply">fill out an application</a>. Everyone is welcome to become contributors, but we admit new contributors at a slow pace, to ensure a diverse group of people and a stable project core.</span></p>
+									<hr id="divider06" class="divider-component instance-6">
+									<p id="text20" class="text-component instance-20"><span class="p">Where are your social media accounts?</span><span class="p">We don&#39;t have any and probably never will. We want to nurture an alternative space for discovering local culture. We also think it’s important to direct engagement toward grassroots organizers instead of handing it over to the monopolistic platforms.</span></p>
+									<hr id="divider12" class="divider-component instance-12">
+									<p id="text21" class="text-component instance-21"><span class="p">Who is behind the club?</span><span class="p">Wildflowers Club is made possible by the +100 contributors with the common aspiration of celebrating local culture. They range from 19-76 in age and are split evenly between genders. Along the way, you’ll meet them in the newsletter. The visual identity is the care work of <a href="https://madssandholm.dk/">Mads</a>, and <a href="https://www.iamnotana.com/">Ana</a> is supplying the analog photos for the weekly newsletter. The project is stewarded by <a href="http://undergaengeren.dk/">Søren</a> and <a href="https://kristoffer.substack.com/">Kristoffer</a>.</span></p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="classified-section">
+						<div id="container07" class="container-component instance-7 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text15" class="text-component instance-15"><span class="p">* PURCHASE A CLASSIFIED AD *</span><span class="p">We are committed to keeping Wildflowers Club free for everyone. So to support our work, you can purchase a text-only classified ad.</span></p>
+									<hr id="divider08" class="divider-component instance-8">
+									<p id="text14" class="text-component instance-14"><span class="p">How does it work?</span><span class="p">1. Pay for a classified ad using the button below.</span><span class="p">2. Once paid, you&#39;ll be navigated to a hidden form where you can submit the copy for your classified ad.</span><span class="p">3. Wait for a confirmation in your inbox. We review all classified ads manually, so this might take up to 24 hours.</span><span class="p">4. Enjoy your classified ad in the Wildflowers Club newsletter. On the off chance that we&#39;ll reject your classified ad, we&#39;ll refund your purchase.</span></p>
+									<hr id="divider09" class="divider-component instance-9">
+									<p id="text17" class="text-component instance-17">For any questions or problems, please don&#39;t hesitate to write us at <a href="mailto:hi@wildflowers.club">hi@wildflowers.club</a></p>
+									<hr id="divider10" class="divider-component instance-10">
+									<ul id="buttons01" class="buttons-component instance-1">
+										<li>
+											<a href="https://buy.stripe.com/6oEdSr6ZgbK80ykbIN" class="n01" role="button">Purchase Classified</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="classified-content-section">
+						<div id="container08" class="container-component instance-8 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text16" class="text-component instance-16"><span class="p">* PURCHASE A CLASSIFIED AD *</span><span class="p">Thank you for your support, it makes a difference. To finalize your order, please fill out the form below.</span></p>
+									<hr id="divider04" class="divider-component instance-4">
+									<form enctype="multipart/form-data" id="form03" method="post" action="#" class="form-component instance-3 style-1">
+										<div class="inner">
+											<div class="field" data-type="text">
+												<label for="form03-headline-25-words">Headline (2-5 words)</label>
+												<input type="text" name="headline-25-words" id="form03-headline-25-words" placeholder="" maxlength="256" required />
+											</div>
+											<div class="field" data-type="text">
+												<label for="form03-text-12-sentences">Text (1-2 sentences)</label>
+												<input type="text" name="text-12-sentences" id="form03-text-12-sentences" placeholder="" maxlength="256" required />
+											</div>
+											<div class="field" data-type="text">
+												<label for="form03-link-you-want-to-promote-max-1">Link you want to promote (max 1) (optional)</label>
+												<input type="text" name="link-you-want-to-promote-max-1" id="form03-link-you-want-to-promote-max-1" placeholder="" maxlength="256" />
+											</div>
+											<div class="field" data-type="email">
+												<label for="form03-your-email">Your email</label>
+												<input type="email" name="your-email" id="form03-your-email" placeholder="" maxlength="128" required />
+											</div>
+											<div class="actions">
+												<button type="submit">Submit</button>
+											</div>
+										</div>
+										<input type="hidden" name="id" value="form03" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="confirmed-section">
+						<div id="container09" class="container-component instance-9 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text19" class="text-component instance-19"><span class="p">* WELCOME TO THE CLUB *</span><span class="p">The next edition will end up in your inbox.</span></p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="goodbye-section">
+						<div id="container10" class="container-component instance-10 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text08" class="text-component instance-8"><span class="p">* GOODBYE *</span><span class="p">Thanks for the time we had together.</span></p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="apply-section">
+						<div id="container11" class="container-component instance-11 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text18" class="text-component instance-18"><span class="p">* BECOME A CONTRIBUTOR *</span><span class="p">Please fill out the form below if you&#39;d like to recommend activities for our club.</span></p>
+									<hr id="divider11" class="divider-component instance-11">
+									<form enctype="multipart/form-data" id="form04" method="post" action="#" class="form-component instance-4 style-1">
+										<div class="inner">
+											<div class="field" data-type="text">
+												<label for="form04-what-is-your-first-name">What is your first name?</label>
+												<input type="text" name="what-is-your-first-name" id="form04-what-is-your-first-name" placeholder="" maxlength="256" required />
+											</div>
+											<div class="field" data-type="textarea">
+												<label for="form04-tell-us-a-bit-about-yourself">Tell us a bit about yourself</label>
+												<textarea data-gramm_editor="false" name="tell-us-a-bit-about-yourself" id="form04-tell-us-a-bit-about-yourself" placeholder="" required></textarea>
+											</div>
+											<div class="field" data-type="textarea">
+												<label for="form04-why-do-you-want-to-become-a-contributor">Why do you want to become a contributor?</label>
+												<textarea data-gramm_editor="false" name="why-do-you-want-to-become-a-contributor" id="form04-why-do-you-want-to-become-a-contributor" placeholder="" required></textarea>
+											</div>
+											<div class="field" data-type="text">
+												<label for="form04-a-link-to-yourself">A link to yourself (optional)</label>
+												<input type="text" name="a-link-to-yourself" id="form04-a-link-to-yourself" placeholder="" maxlength="256" />
+											</div>
+											<div class="field" data-type="email">
+												<label for="form04-your-email">Your email</label>
+												<input type="email" name="your-email" id="form04-your-email" placeholder="" maxlength="128" required />
+											</div>
+											<div class="actions">
+												<button type="submit">Apply</button>
+											</div>
+										</div>
+										<input type="hidden" name="id" value="form04" />
+									</form>
+								</div>
+							</div>
+						</div>
+					</section>
+					<footer id="footer">
+						<div id="container04" class="container-component instance-4 default">
+							<div class="wrapper">
+								<div class="inner">
+									<p id="text02" class="text-component instance-2">***</p>
+									<p id="text05" class="text-component instance-5">See you next Monday.</p>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</div>
+		<script src="assets/main.js"></script>
+	</body>
+</html>
